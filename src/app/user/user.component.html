@@ -1,0 +1,194 @@
+<!-- Thực hiện các chức năng Add và Edit Data -->
+
+<!-- Import phần hiển thị thông tin data -->
+<app-form></app-form>
+
+<!-- Add Data -->
+<div class="form-container" *ngIf="isAddPath()">
+    <form [formGroup]="signInForm"  (ngSubmit)="add()"> 
+      <h2 class="text-center">Thêm dữ liệu</h2>
+      <!-- Name -->
+      <div class="form-group">
+          <label for="exampleInputName">Name</label>
+          <input type="text" class="form-control" 
+                  id="exampleInputName" placeholder="Enter name" formControlName="Name"
+                  name="Name" [pattern]="patternString" required>
+          <!-- Error Name -->
+          <div *ngIf="signInForm.controls.Name.touched">
+              <div *ngIf="signInForm.controls.Name.errors?.['required']"  class="error-message">
+                  Error: Không được để trống. 
+              </div>
+              <div *ngIf="signInForm.controls.Name.errors?.['pattern']" class="error-message">
+                  Error: Lỗi ký tự vui lòng chỉ điền chữ và không có dấu.
+              </div>
+          </div>
+      </div>
+      
+      <!-- Date -->
+      <div class="form-group">
+          <label for="exampleInputDate">Date</label>
+          <input type="text" class="form-control" 
+                  id="exampleInputDate" placeholder="Enter date" formControlName="Date" 
+                  name="Date" [pattern]="patternNum" formControlName="Date">
+          <!-- Error date -->    
+          <div *ngIf="signInForm.controls.Date.touched">
+              <div *ngIf="signInForm.get('Date')?.errors?.['required']" class="error-message">
+                  Error: Không được để trống. 
+              </div>
+              <div *ngIf="signInForm.controls.Date.errors?.['dateValidator']" class="error-message">
+                  Error: Lỗi số năm, năm phải trong khoảng từ 1900 đến nay.
+              </div>
+              <div *ngIf="signInForm.controls.Date.errors?.['pattern']" class="error-message">
+                  Error: Lỗi ký tự vui lòng điền số.
+              </div>
+          </div>
+      </div>
+
+      <!-- Salary -->
+      <div class="form-group">
+        <label for="exampleInputSalary">Salary</label>
+        <input type="text" class="form-control" 
+                id="exampleInputSalary" placeholder="Enter salary" formControlName="Salary"
+                name="Salary" [pattern]="patternNum" required>
+        <!-- Error Salary -->
+        <div *ngIf="signInForm.controls.Salary.touched">
+            <div *ngIf="signInForm.controls.Salary.errors?.['required']"  class="error-message">
+                Error: Không được để trống. 
+            </div>
+            <div *ngIf="signInForm.controls.Salary.errors?.['pattern']" class="error-message">
+                Error: Lỗi ký tự vui lòng chỉ điền số.
+            </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="form-group">
+        <label for="exampleInputLocation">Location</label>
+        <select class="form-control form-select" id="exampleInputLocation" formControlName="Location">
+            <option value=''>Select Location</option>
+            <option value="hanoi">Hà Nội</option>
+            <option value="danang">Đà Nẵng</option>
+            <option value="tphcm">Thành phố Hồ Chí Minh</option>
+        </select>
+        <div *ngIf="signInForm.controls.Location.touched">
+            <div *ngIf="signInForm.controls.Location.errors?.['required']"  class="error-message">
+                Error: Vui lòng chọn vị trí. 
+            </div>
+        </div>
+      </div>
+
+      <!-- Remote -->
+      <div class="form-group">
+        <div class="hh">
+          <span>Remote:</span>
+          <label>
+            <input type="radio" class="circle-radio" value="true" formControlName="Remote"> Yes
+          </label>
+          <label>
+            <input type="radio" class="circle-radio" value="false" formControlName="Remote"> No
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!signInForm.valid">Submit</button>
+    </form>
+</div>
+  
+  
+<!-- Edit Data -->
+<div class="form-container" *ngIf="!isAddPath()">
+    <form [formGroup]="otherForm"  (ngSubmit)="edit();"> 
+        <h2 class="text-center">Sửa thông tin</h2>
+        <div class="form-group">
+            <label for="exampleInputID">ID</label>
+            <input class="form-control" name="ID" formControlName="ID">
+        </div>
+        <div class="form-group">
+            <!-- Name -->
+            <label for="exampleInputName">Name</label>
+            <input type="text" class="form-control" 
+                    id="exampleInputName" placeholder="Enter name" formControlName="Name"
+                    name="Name" [pattern]="patternString" required>
+            <!-- Error Name -->
+            <div *ngIf="otherForm.controls.Name.touched && otherForm.controls.Name.dirty">
+                <div *ngIf="otherForm.controls.Name.errors?.['required']" class="error-message">
+                    Error: Không được để trống. 
+                </div>
+                <div *ngIf="otherForm.controls.Name.errors?.['pattern']" class="error-message">
+                    Error: Lỗi ký tự vui lòng chỉ điền chữ và không có dấu.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Date -->
+        <div class="form-group">
+            <!-- Date -->
+            <label for="exampleInputDate">Date</label>
+            <input type="text" class="form-control" 
+                    id="exampleInputDate" placeholder="Enter date" formControlName="Date" 
+                    name="Date" [pattern]="patternNum" formControlName="Date">
+            <!-- Error date -->    
+            <div *ngIf="otherForm.controls.Date.touched && otherForm.controls.Date.dirty">
+                <div *ngIf="otherForm.get('Date')?.errors?.['required']" class="error-message">
+                    Error: Không được để trống. 
+                </div>
+                <div *ngIf="otherForm.controls.Date.errors?.['dateValidator']" class="error-message">
+                    Error: Lỗi số năm, năm phải trong khoảng từ 1900 đến nay.
+                </div>
+                <!-- <div *ngIf="otherForm.controls.Date.errors?.['minlength']" class="error-message">
+                    Error: Vui lòng điền đủ số năm gồm 4 chữ số.
+                </div> -->
+                <div *ngIf="otherForm.controls.Date.errors?.['pattern']" class="error-message">
+                    Error: Lỗi ký tự vui lòng điền số.
+                </div>
+            </div>
+        </div>
+
+        <!-- Salary -->
+        <div class="form-group">
+            <label for="exampleInputSalary">Salary</label>
+            <input type="text" class="form-control" 
+                    id="exampleInputSalary" placeholder="Enter salary" formControlName="Salary"
+                    name="Salary" [pattern]="patternNum" required>
+            <!-- Error Salary -->
+            <div *ngIf="otherForm.controls.Salary.touched">
+                <div *ngIf="otherForm.controls.Salary.errors?.['required']"  class="error-message">
+                    Error: Không được để trống. 
+                </div>
+                <div *ngIf="otherForm.controls.Salary.errors?.['pattern']" class="error-message">
+                    Error: Lỗi ký tự vui lòng chỉ điền số.
+                </div>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <div class="form-group">
+            <label for="exampleInputLocation">Location</label>
+            <select class="form-control form-select" id="exampleInputLocation" formControlName="Location">
+                <option value=''>Select Location</option>
+                <option value="hanoi">Hà Nội</option>
+                <option value="danang">Đà Nẵng</option>
+                <option value="tphcm">Thành phố Hồ Chí Minh</option>
+            </select>
+            <div *ngIf="otherForm.controls.Location.touched">
+                <div *ngIf="otherForm.controls.Location.errors?.['required']"  class="error-message">
+                    Error: Vui lòng chọn vị trí. 
+                </div>
+            </div>
+        </div>
+
+        <!-- Remote -->
+        <div class="form-group">
+            <div class="hh">
+              <span>Remote:</span>
+              <label>
+                <input type="radio" class="circle-radio" value="true" formControlName="Remote"> Yes
+              </label>
+              <label>
+                <input type="radio" class="circle-radio" value="false" formControlName="Remote"> No
+              </label>
+            </div>
+          </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!otherForm.valid">Submit</button>
+    </form>
+</div>

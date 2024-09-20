@@ -1,0 +1,49 @@
+{
+  "Datadetail": [
+    {
+      "id": "8",
+      "Name": "hello world ae",
+      "Date": 1900,
+      "Salary": 2009800,
+      "Location": "tphcm",
+      "Remote": "true",
+      "Favorite": true
+    },
+    {
+      "id": "6",
+      "Name": "Nguyen Tan Sang",
+      "Date": 1957,
+      "Salary": 12000000,
+      "Location": "danang",
+      "Remote": "true",
+      "Favorite": false
+    },
+    {
+      "id": "7",
+      "Name": "Truong Tan Ba",
+      "Date": 1999,
+      "Salary": 2000000,
+      "Location": "hanoi",
+      "Remote": "false",
+      "Favorite": true
+    },
+    {
+      "id": "9",
+      "Name": "Trinh Minh Chien",
+      "Date": 2003,
+      "Salary": 12000000,
+      "Location": "hanoi",
+      "Remote": "false",
+      "Favorite": false
+    },
+    {
+      "id": "9",
+      "Name": "Trinh Minh Chien",
+      "Date": 2003,
+      "Salary": 12000000,
+      "Location": "hanoi",
+      "Remote": "false",
+      "Favorite": false
+    }
+  ]
+}

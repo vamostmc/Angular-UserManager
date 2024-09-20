@@ -1,0 +1,221 @@
+
+.form-container {
+    margin:auto;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px; 
+    font-size: 14px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.card-deck {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh các thẻ card */
+    gap: 2rem; /* Khoảng cách giữa các thẻ card */
+    flex-wrap: wrap; /* Cho phép các thẻ card xuống dòng nếu không đủ chỗ */
+    justify-content: center; /* Căn giữa thẻ card trong container */
+}
+
+
+.card-container .card {
+    flex: 1 1 15rem; /* Ngăn các thẻ card co lại hoặc lớn lên */
+    margin-right: 15px; /* Khoảng cách giữa các thẻ card */
+    width: 13.5rem;
+}
+
+.card-title {
+    margin-top: 0.5rem; /* Khoảng cách giữa ID và viền gạch ngang */
+}
+
+.card-container .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.card-container .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-right: 0rem;
+}
+
+.card-container .btn-small {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.card-divider {
+    border: none; /* Loại bỏ viền mặc định của <hr> */
+    height: 1px; /* Độ dày của đường gạch */
+    background-color: #007bff; /* Màu của đường gạch */
+    width: 170px; /* Chiều rộng của đường gạch */
+    margin: 1rem 0;
+     /* Khoảng cách trên và dưới của đường gạch */
+    align-self: center; /* Căn giữa đường gạch trong phần tử chứa */
+}
+
+h1 {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin: 1.3rem 0; /* Khoảng cách trên và dưới tiêu đề */
+    font-size: 2.5rem; /* Kích thước chữ lớn hơn */
+}
+  
+/* Nav */
+.navbar {
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử trong navbar */
+    justify-content: space-between; /* Đảm bảo các phần tử nằm ở hai đầu của navbar */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    padding: 0 1.6rem; /* Padding bên trái và phải của navbar */
+    background-color: #e0f0ff; /* Màu nền xanh dương nhạt */
+    height: 4rem; /* Chiều cao của navbar, có thể điều chỉnh theo ý muốn */
+}
+
+.navbar-brand:hover, .navbar-brand1:hover {
+    color: #007bff;
+    /* background-color: #007bff */
+}
+
+.navbar-brand1 {
+    margin-left: 10rem;
+    margin-right: 1rem;
+    text-decoration: none; /* Loại bỏ gạch chân */
+    font-family: 'Lora', sans-serif; /* Thay đổi font chữ */
+    font-size: 1.2rem; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm của chữ */
+    font-style: normal; /* Kiểu chữ nghiêng */
+    color: black; /* Màu chữ */
+}
+
+.navbar-brand {
+    margin-left: 2.5rem;
+    font-family: 'Lora', sans-serif; /* Thay đổi font chữ */
+    font-size: 1.2rem; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm của chữ */
+    font-style: normal; /* Kiểu chữ nghiêng */
+    color: black; /* Màu chữ */
+}
+  
+.form-inline {
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử trong form */
+    align-items: center; /* Căn giữa các phần tử trong form theo chiều dọc */
+    margin-left: auto;
+    width: 500px;
+}
+
+.custom-input {
+    width: 250px; /* Ví dụ: điều chỉnh chiều rộng */
+    padding: 0.5rem; /* Ví dụ: điều chỉnh padding */
+    font-size: 0.875rem; /* Ví dụ: điều chỉnh kích thước chữ */
+    border: 1px solid #007bff; /* Ví dụ: thay đổi màu viền */
+    border-radius: 0.25rem; /* Độ cong của viền */
+}
+  
+.btn-outline-success {
+    margin-left: 0.4rem; /* Khoảng cách giữa input và button */
+    width: 15%;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+/* .circle-radio {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin: 0.25rem;
+}
+
+.circle-label {
+font-size: 0.9rem;
+margin-left: 0.5rem;
+} */
+
+  
+.radio-group {
+    display: flex;
+    align-items: center;
+    margin-left: 5rem;
+}
+  
+.radio-group label {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem; /* khoảng cách giữa các radio */
+}
+
+.hh {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hh span {
+    margin-right: 2.5rem; /* Khoảng cách giữa "Remote" và radio */
+  }
+  
+  .hh label {
+    display: flex;
+    align-items: center;
+    margin-right: 4rem; /* Khoảng cách giữa các nhóm radio */
+    position: relative; /* Sử dụng để di chuyển input radio */
+    top: 3px; /* Điều chỉnh giá trị để di chuyển xuống dưới */
+  }
+
+.circle-radio {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-right: 0.35rem; /* khoảng cách giữa radio và chữ */
+    border: none;
+    box-shadow: none;
+    /* appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; */
+  }
+  
+  .circle-radio:checked {
+    background-color: red; /* Màu nền khi được chọn */
+  }

@@ -1,0 +1,322 @@
+
+.form-container {
+    margin:auto;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px; 
+    font-size: 14px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.card-deck {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh các thẻ card */
+    gap: 2rem; /* Khoảng cách giữa các thẻ card */
+    flex-wrap: wrap; /* Cho phép các thẻ card xuống dòng nếu không đủ chỗ */
+    justify-content: center; /* Căn giữa thẻ card trong container */
+}
+
+
+.card-container .card {
+    flex: 1 1 15rem; /* Ngăn các thẻ card co lại hoặc lớn lên */
+    margin-right: 15px; /* Khoảng cách giữa các thẻ card */
+    width: 13.5rem;
+}
+
+.card-title {
+    margin-top: 0.5rem; /* Khoảng cách giữa ID và viền gạch ngang */
+}
+
+.card-container .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.card-container .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-right: 0rem;
+}
+
+.card-container .btn-small {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.card-divider {
+    border: none; /* Loại bỏ viền mặc định của <hr> */
+    height: 1px; /* Độ dày của đường gạch */
+    background-color: #007bff; /* Màu của đường gạch */
+    width: 170px; /* Chiều rộng của đường gạch */
+    margin: 1rem 0;
+     /* Khoảng cách trên và dưới của đường gạch */
+    align-self: center; /* Căn giữa đường gạch trong phần tử chứa */
+}
+
+h1 {
+    margin-left: 7.0em;
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-top: 1.3rem; /* Khoảng cách trên và dưới tiêu đề */
+    margin-bottom: 1.3rem;
+    font-size: 2.5rem; /* Kích thước chữ lớn hơn */
+}
+  
+/* Nav */
+.navbar {
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử trong navbar */
+    justify-content: space-between; /* Đảm bảo các phần tử nằm ở hai đầu của navbar */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    padding: 0 1.6rem; /* Padding bên trái và phải của navbar */
+    background-color: #e0f0ff; /* Màu nền xanh dương nhạt */
+    height: 4rem; /* Chiều cao của navbar, có thể điều chỉnh theo ý muốn */
+}
+
+.navbar-brand:hover, .navbar-brand1:hover {
+    color: #007bff;
+    /* background-color: #007bff */
+}
+
+.navbar-brand1 {
+    margin-left: 10rem;
+    margin-right: 1rem;
+    text-decoration: none; /* Loại bỏ gạch chân */
+    font-family: 'Lora', sans-serif; /* Thay đổi font chữ */
+    font-size: 1.2rem; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm của chữ */
+    font-style: normal; /* Kiểu chữ nghiêng */
+    color: black; /* Màu chữ */
+}
+
+.navbar-brand {
+    margin-left: 2.5rem;
+    font-family: 'Lora', sans-serif; /* Thay đổi font chữ */
+    font-size: 1.2rem; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm của chữ */
+    font-style: normal; /* Kiểu chữ nghiêng */
+    color: black; /* Màu chữ */
+}
+  
+.form-inline {
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử trong form */
+    align-items: center; /* Căn giữa các phần tử trong form theo chiều dọc */
+    margin-left: auto;
+    width: 750px;
+    margin-right: 4rem;
+}
+
+.check-salary {
+    max-width: 140px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.check-location {
+    max-width: 350px;
+    margin-right: 4px;
+}
+
+.check-remote {
+    max-width: 140px;
+}
+
+.custom-input {
+    width: 200px; /* Ví dụ: điều chỉnh chiều rộng */
+    padding: 0.5rem; /* Ví dụ: điều chỉnh padding */
+    font-size: 0.875rem; /* Ví dụ: điều chỉnh kích thước chữ */
+    border: 1px solid #007bff; /* Ví dụ: thay đổi màu viền */
+    border-radius: 0.35rem; /* Độ cong của viền */
+    /* margin-right: 3.5rem; */
+}
+
+.order form input[type="radio"] {
+    margin-right: 0.1rem; /* Khoảng cách giữa radio button và văn bản */
+}
+
+.order form label {
+    margin-bottom: 3px; /* Khoảng cách giữa các phần tử label */
+    display: block; /* Đảm bảo rằng các label và radio button nằm trên cùng một dòng */
+}
+
+.order form p {
+     /* Khoảng cách phía trên của các đoạn văn */
+    margin-bottom: 6px; /* Khoảng cách phía dưới của các đoạn văn */
+}
+
+.order-wrapper {
+    width: 240px;
+    margin-right: 20px;
+    
+}
+
+.order {
+    background-color: #f5f7fa; /* Màu nền sáng cho form */
+    padding: 15px; /* Thêm đệm cho form */
+    border-radius: 5px; /* Bo góc cho form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho form */
+    width: 240px; 
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 12px; /* Khoảng cách giữa tiêu đề và form */
+}
+  
+.btn-outline-success {
+    margin-left: 0.4rem; /* Khoảng cách giữa input và button */
+    width: 10%;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+
+.title-icon-container {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.card-title {
+    margin-right: 100px; /* Khoảng cách giữa thẻ <h5> và biểu tượng */
+}
+
+.icon-large {
+    font-size: 24px; /* Thay đổi kích cỡ biểu tượng */
+}
+
+.icon-large:hover {
+    transform: scale(1.2); /* Phóng to icon khi di chuột qua */
+}
+
+
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem; /* Điều chỉnh khoảng cách theo nhu cầu */
+    margin-right: 2.5em;
+    
+  }
+
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper-salary {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper-salary i {
+    position: absolute;
+    left: 14px; /* Adjust as needed */
+    pointer-events: none;
+}
+
+.select-wrapper-salary select {
+    padding-left: 34px; /* Adjust padding to make room for the icon */
+    padding-top: 5px;
+}
+
+.select-wrapper-salary option {
+    margin-right: 20px; /* Đảm bảo các tùy chọn dịch sang trái khi nhấn */
+}
+
+.select-wrapper-remote {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper-remote i {
+    position: absolute;
+    left: 10px; /* Adjust as needed */
+    pointer-events: none;
+}
+
+.select-wrapper-remote select {
+    padding-left: 35px; /* Adjust padding to make room for the icon */
+    padding-top: 5px;
+}
+
+.select-wrapper-remote option {
+    margin-right: 20px; /* Đảm bảo các tùy chọn dịch sang trái khi nhấn */
+}
+
+.select-wrapper i {
+    position: absolute;
+    left: 10px; /* Adjust as needed */
+    pointer-events: none;
+}
+
+.select-wrapper select {
+    padding-left: 28px; /* Adjust padding to make room for the icon */
+    padding-top: 5px;
+}
+
+.select-wrapper option {
+    padding-left: 200px; /* Đảm bảo các tùy chọn dịch sang trái khi nhấn */
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 10px; /* Điều chỉnh theo ý muốn */
+    pointer-events: none; /* Đảm bảo biểu tượng không chặn các sự kiện trên ô nhập liệu */
+}
+
+.input-wrapper .custom-input {
+    padding-left: 30px; /* Điều chỉnh để tạo khoảng trống cho biểu tượng */
+}

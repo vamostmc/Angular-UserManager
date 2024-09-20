@@ -1,0 +1,156 @@
+<!-- Hiển thị thông tin Data -->
+
+<!-- Search Data -->
+<nav class="navbar bg-light justify-content-between">
+    <a routerLink="/home" class="navbar-brand1">Home</a>
+    <a routerLink="/add" class="navbar-brand">Add Data</a>
+    <a routerLink="/edit" class="navbar-brand">Edit Data</a>
+    <a routerLink="/favorite" class="navbar-brand">Favorite Data</a>
+    
+    <form class="form-inline my-2 my-lg-0">
+        <div class="input-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="form-control custom-input mr-sm-2" #searchData 
+            placeholder="Search" 
+            (input)="advanceSearch(searchData.value,stringToNumber(salary.value),location.value,(remote.value))" 
+            aria-label="Search">
+        </div>
+
+        <div class="select-wrapper-salary">
+            <!-- <i class="fa-solid fa-money-bill-wave"></i> -->
+            <i class="fa-solid fa-money-bill"></i>
+            <select class="form-control check-salary form-select" #salary 
+            (input)="advanceSearch(searchData.value,stringToNumber(salary.value),location.value,(remote.value))">
+            <option value="" >Salary</option>
+            <option value="2000000">Dưới 2 triệu</option>
+            <option value="2000001">2 - 7 triệu</option>
+            <option value="7000000">7 - 12 triệu</option>
+            <option value="12000000">12 - 17 triệu</option>
+        </select>
+        </div>
+        
+        <div class="select-wrapper">
+            <i class="fa-solid fa-location-dot"></i>
+            <select class="form-control check-location form-select" 
+                (input)="advanceSearch(searchData.value,stringToNumber(salary.value),location.value,(remote.value))"
+                #location>
+                <option value="">Location</option>
+                <option value="hanoi">Hà Nội</option>
+                <option value="danang">Đà Nẵng</option>
+                <option value="tphcm">Hồ Chí Minh</option>
+            </select>
+        </div>
+        <div class="select-wrapper-remote">
+            <i class="fa-solid fa-house-laptop"></i>
+            <select class="form-control check-remote form-select" 
+            (input)="advanceSearch(searchData.value,stringToNumber(salary.value),location.value,(remote.value))"
+            #remote>
+                <option value="">Remote</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" (click)="search(searchData.value)">Search</button> -->
+        <button class="btn btn-outline-success my-2 my-sm-0" 
+        (click)="advanceSearch(searchData.value,stringToNumber(salary.value),location.value,(remote.value))">Search</button>
+    </form>
+</nav>
+
+<!-- Info Data -->
+<h1>Information</h1>
+<div class="card-deck">
+        <div class="order-wrapper">
+            <h4>Order By <i class="fa-solid fa-filter"></i></h4>
+            <div class="order">
+                <form #OrderByForm="ngForm" (change)="orderBy(selectedOrder, sortOrder)">
+                    <p>Chọn trường để sắp xếp:</p>
+                    <label>
+                        <input type="radio" value="1" name="orderBy" [(ngModel)]="selectedOrder"> Mặc định
+                    </label>
+                    <label>
+                        <input type="radio" value="2" name="orderBy" [(ngModel)]="selectedOrder"> Lương
+                    </label>
+                    <label>
+                        <input type="radio" value="3" name="orderBy" [(ngModel)]="selectedOrder"> Năm
+                    </label>
+                    <br>
+                    <p>Sắp xếp theo thứ tự:</p>
+                    <label>
+                        <input type="radio" value="cao" name="By" [(ngModel)]="sortOrder"> Tăng dần
+                    </label>
+                    <label>
+                        <input type="radio" value="thap" name="By" [(ngModel)]="sortOrder"> Giảm dần
+                    </label>
+                </form>
+            </div>
+        </div>
+    
+    <!-- Trong trường hợp search thì sẽ hiển thị ra value search -->
+    <div class="card-container" *ngIf="CheckSearch">
+        <div class="card border-info mb-3" *ngFor="let data of searchDataValue | paginate: { itemsPerPage: 4, currentPage: p }">
+            <div class="card-body">
+                <div class="title-icon-container">
+                    <h5 class="card-title">ID: {{data.id}}</h5>
+                    <div *ngIf="data.Favorite">
+                        <a routerLink="#" title="Yêu thích" (click)="favorite(data.id, data.Favorite)"><i class="fa-solid fa-star icon-large"></i></a>
+                    </div>
+                    <div *ngIf="!data.Favorite">
+                        <a routerLink="#" title="Yêu thích" (click)="favorite(data.id, data.Favorite)"><i class="fa-regular fa-star icon-large"></i></a>
+                    </div>
+                </div>
+            <hr class="card-divider">
+            <p class="card-text">Name: {{data.Name}}</p>
+            <p class="card-text">Date: {{data.Date}}</p>
+            <p class="card-text">Salary: {{data.Salary.toLocaleString()}} VND</p>
+            <p class="card-text">Location: {{data.Location}}</p>
+            <p class="card-text">Remote: {{data.Remote}}</p>
+            <p class="card-text">Favorite: {{data.Favorite}} </p>
+            <div class="button-group">
+                <button class="btn btn-primary btn-small" (click)="delete(data.id);"><i class="fa-solid fa-trash"></i></button>
+                <button class="btn btn-primary btn-small" routerLink="/edit/{{data.id}}" ><i class="fa-solid fa-pen-to-square"></i></button>
+            </div>
+            </div>
+        </div>
+    </div>  
+    <!-- Trong trường hợp không search thì sẽ hiển thị ra value thông tin ban đầu của list -->
+    <div class="card-container" *ngIf="!CheckSearch">
+        <div class="card border-info mb-3" *ngFor="let data of dataAfter | paginate: { itemsPerPage: 4, currentPage: p }">
+            <div class="card-body">
+                <div class="title-icon-container">
+                    <h5 class="card-title">ID: {{data.id}}</h5>
+                    <div *ngIf="data.Favorite">
+                        <a routerLink="#" title="Yêu thích" (click)="favorite(data.id, data.Favorite)"><i class="fa-solid fa-star icon-large"></i></a>
+                    </div>
+                    <div *ngIf="!data.Favorite">
+                        <a routerLink="#" title="Yêu thích" (click)="favorite(data.id, data.Favorite)"><i class="fa-regular fa-star icon-large"></i></a>
+                    </div>
+                </div>
+            <hr class="card-divider">
+            <p class="card-text">Name: {{data.Name}}</p>
+            <p class="card-text">Date: {{data.Date}}</p>
+            <p class="card-text">Salary: {{data.Salary.toLocaleString()}} VND</p>
+            <p class="card-text">Location: {{data.Location}}</p>
+            <p class="card-text">Remote: {{data.Remote}}</p>
+            <!-- <input type="checkbox" name="Favorite{{data.ID}}" [(ngModel)]="data.Favorite" (change)="favorite(data.ID,data.Favorite)">LV -->
+            <p class="card-text">Favorite: {{data.Favorite}} </p>
+            <div class="button-group">
+                <button class="btn btn-primary btn-small" (click)="delete(data.id)"><i class="fa-solid fa-trash"></i></button>
+                <button class="btn btn-primary btn-small" routerLink="/edit/{{data.id}}"><i class="fa-solid fa-pen-to-square"></i></button>
+            </div>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<div class="pagination-container">
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+</div>
+
+
+
+  
+
+
+
+
+
